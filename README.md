@@ -6,6 +6,7 @@ simulation using the [UERANSIM](https://github.com/aligungr/UERANSIM) project.
 ## Single UPF
 The deployment scenario is shown below. A single UPF is used.
 The configuration files are in the `single_upf` folder.  
+ 
 ![single_upf](images/single_upf_deployment.png)
 
 
