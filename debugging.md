@@ -1,8 +1,17 @@
 # Debugging and FAQs
 
 - [Debugging and FAQs](#debugging-and-faqs)
+  - [No messages are exchanged between 5GC, UPF, and gNB](#no-messages-are-exchanged-between-5gc-upf-and-gnb)
   - [Cannot access Internet from the UE TUN interface](#cannot-access-internet-from-the-ue-tun-interface)
   - [OpenStack instances cannot access Internet](#openstack-instances-cannot-access-internet)
+
+## No messages are exchanged between 5GC, UPF, and gNB
+The following messages should be exchanged  
+- PFCF messages between 5GC and UPF
+- SCTP messages between gNB and 5GC
+
+**Fix**:
+If these are not working, check if the proper security rules are present in the VMs!
 
 ## Cannot access Internet from the UE TUN interface
 

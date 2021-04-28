@@ -11,12 +11,12 @@ configuration:
 
   # The IP list of the N4 interface on this UPF (Can't set to 0.0.0.0)
   pfcp:
-    - addr: 192.168.1.228
+    - addr: 192.168.1.20  # IP addr of this VM
 
   # The IP list of the N3/N9 interfaces on this UPF
   # If there are multiple connection, set addr to 0.0.0.0 or list all the addresses
   gtpu:
-    - addr: 192.168.1.228
+    - addr: 192.168.1.20
     # [optional] gtpu.name
     # - name: upf.5gc.nctu.me
     # [optional] gtpu.ifname

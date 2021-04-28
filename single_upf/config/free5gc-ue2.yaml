@@ -1,16 +1,16 @@
 # IMSI number of the UE. IMSI = [MCC|MNC|MSISDN] (In total 15 or 16 digits)
-supi: 'imsi-208930000000003'
+supi: 'imsi-208930000000004'
 # Mobile Country Code value of HPLMN
 mcc: '208'
 # Mobile Network Code value of HPLMN (2 or 3 digits)
 mnc: '93'
 
 # Permanent subscription key
-key: '8baf473f2f8fd09487cccbd7097c6862'
+key: '8baf473f2f8fd09487cccbd7097c6863'
 # Operator code (OP or OPC) of the UE
 op: '8e27b6af0e692e750f32667a3b14605d'
 # This value specifies the OP type and it can be either 'OP' or 'OPC'
-opType: 'OP'
+opType: 'OPC'
 # Authentication Management Field (AMF) value
 amf: '8000'
 # IMEI number of the device. It is used if no SUPI is provided
@@ -29,6 +29,7 @@ sessions:
     slice:
       sst: 0x01
       sd: 0x010203
+    emergency: false
 
 # Configured NSSAI for this UE by HPLMN
 configured-nssai:
@@ -51,3 +52,8 @@ ciphering:
   EA1: true
   EA2: true
   EA3: true
+
+# Integrity protection maximum data rate for user plane
+integrityMaxRate:
+  uplink: 'full'
+  downlink: 'full'

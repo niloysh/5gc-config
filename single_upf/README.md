@@ -12,6 +12,7 @@ Note that the commands here *need to be changed* to achieve the setup shown in t
   - [Creating test ubuntu instance](#creating-test-ubuntu-instance)
 
 ## Create upf instance on 5gc-net on cn201
+**todo**: update all the command(s) with default security group rule allowing all incoming traffic.
 ```
 server create --image free5gc-snapshot --flavor m1.medium --security-group ns-secgroup --availability-zone nova::cn201 --key-name ns-rsa-keypair --nic net-id=b66b9127-8323-4044-8041-e725fe91b79f,v4-fixed-ip=192.168.1.12 upf1
 ```
