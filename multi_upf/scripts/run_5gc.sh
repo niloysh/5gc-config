@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
 PID_LIST=()
+cd ~/free5gc
 
 NF_LIST="nrf amf smf udr pcf udm nssf ausf"
-CONF_DIR="~/5gc-config/branch_upf/config/"
+CONF_DIR="${HOME}/5gc-config/multi_upf/config"
 
 export GIN_MODE=release
 

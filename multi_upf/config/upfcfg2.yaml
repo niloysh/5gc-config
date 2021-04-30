@@ -11,12 +11,12 @@ configuration:
 
   # The IP list of the N4 interface on this UPF (Can't set to 0.0.0.0)
   pfcp:
-    - addr: 192.168.1.20  # IP addr of this VM
+    - addr: 192.168.1.22
 
   # The IP list of the N3/N9 interfaces on this UPF
   # If there are multiple connection, set addr to 0.0.0.0 or list all the addresses
   gtpu:
-    - addr: 192.168.1.20
+    - addr: 192.168.1.22
     # [optional] gtpu.name
     # - name: upf.5gc.nctu.me
     # [optional] gtpu.ifname
@@ -24,7 +24,7 @@ configuration:
 
   # The DNN list supported by UPF
   dnn_list:
-    - dnn: internet # Data Network Name
-      cidr: 60.60.0.0/16 # Classless Inter-Domain Routing for assigned IPv4 pool of UE
+    - dnn: network2 # Data Network Name
+      cidr: 60.62.0.0/16 # Classless Inter-Domain Routing for assigned IPv4 pool of UE
       # [optional] dnn_list[*].natifname
       # natifname: eth0
