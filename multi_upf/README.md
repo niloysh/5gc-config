@@ -1,6 +1,7 @@
-# Setup process for 5GC with branch UPF
+# 5GC setup with multiple UPF
 
-- [Setup process for 5GC with branch UPF](#setup-process-for-5gc-with-branch-upf)
+- [5GC setup with multiple UPF](#5gc-setup-with-multiple-upf)
+  - [Deployment scenario](#deployment-scenario)
   - [VM placement](#vm-placement)
     - [create UE on 5gc-net on cn116-nsm](#create-ue-on-5gc-net-on-cn116-nsm)
     - [create gnB on 5gc-net on cn118](#create-gnb-on-5gc-net-on-cn118)
@@ -8,6 +9,12 @@
     - [create UPFb on cn201](#create-upfb-on-cn201)
     - [create UPF1 on cn201](#create-upf1-on-cn201)
     - [create UPF2 on cn203](#create-upf2-on-cn203)
+
+## Deployment scenario
+
+![multi upf](../images/multi_upf_deployment.png)
+
+The configuration files for this deployment are in the `multi_upf/config` folder.
 
 ## VM placement
 The hosts are as follows:  

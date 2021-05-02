@@ -2,6 +2,8 @@
 
 - [Debugging and FAQs](#debugging-and-faqs)
   - [No messages are exchanged between 5GC, UPF, and gNB](#no-messages-are-exchanged-between-5gc-upf-and-gnb)
+  - [UPF gtp5g device add failed](#upf-gtp5g-device-add-failed)
+  - [UPF socket bind failed](#upf-socket-bind-failed)
   - [Cannot access Internet from the UE TUN interface](#cannot-access-internet-from-the-ue-tun-interface)
   - [OpenStack instances cannot access Internet](#openstack-instances-cannot-access-internet)
 
@@ -12,6 +14,29 @@ The following messages should be exchanged
 
 **Fix**:
 If these are not working, check if the proper security rules are present in the VMs!
+
+## UPF gtp5g device add failed
+
+![upf device add fail](images/upf_device_add_fail.png)
+
+This can occur if the `upfgtp` interface already exists, and has not been cleaned up from a previous iteration.
+Check using `ifconfig`.
+
+**Fix**
+Remove the existing `upfgtp` interface as follows:
+```
+$ sudo ip l del upfgtp
+```
+
+## UPF socket bind failed
+
+![upf socket bind fail](images/upf_wrong_ip.png)
+
+This can occur if the wrong IP address has been specified in the `upfcfg.yaml` file.
+
+**Fix**:
+Correct the IP address in the `upfcfg.yaml` file. It should be the IP address of the VM this UPF is running on.
+
 
 ## Cannot access Internet from the UE TUN interface
 
