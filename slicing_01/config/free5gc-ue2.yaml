@@ -1,12 +1,12 @@
 # IMSI number of the UE. IMSI = [MCC|MNC|MSISDN] (In total 15 or 16 digits)
-supi: 'imsi-208930000000003'
+supi: 'imsi-208930000000002'
 # Mobile Country Code value of HPLMN
 mcc: '208'
 # Mobile Network Code value of HPLMN (2 or 3 digits)
 mnc: '93'
 
 # Permanent subscription key
-key: '8baf473f2f8fd09487cccbd7097c6863'
+key: '8baf473f2f8fd09487cccbd7097c6862'
 # Operator code (OP or OPC) of the UE
 op: '8e27b6af0e692e750f32667a3b14605d'
 # This value specifies the OP type and it can be either 'OP' or 'OPC'
@@ -25,21 +25,21 @@ gnbSearchList:
 # Initial PDU sessions to be established
 sessions:
   - type: 'IPv4'
-    apn: 'network1'
+    apn: 'network2'
     slice:
       sst: 0x01
-      sd: 0x010203
+      sd: 0x112233
     emergency: false
 
 # Configured NSSAI for this UE by HPLMN
 configured-nssai:
   - sst: 0x01
-    sd: 0x010203
+    sd: 0x112233
 
 # Default Configured NSSAI for this UE
 default-nssai:
-  - sst: 1
-    sd: 1
+  - sst: 0x01
+    sd: 0x112233
 
 # Supported encryption algorithms by this UE
 integrity:
