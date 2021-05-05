@@ -32,7 +32,7 @@ The configuration files and scripts are in the [multi_upf](multi_upf) directory.
 
 The configuration files and scripts are in the [slicing_01](slicing_01) directory.
 
-## Network Slicing 02
+## Network Slicing 02 (TODO)
 
 - In this scenario, we have 2 S-NSSAI representing two network slices (each consisting of 1 SMF and 1 UPF). 
 - UE1 connects to both slice 1 and slice 2 using two separate PDU sessions.
