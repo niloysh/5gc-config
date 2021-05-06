@@ -13,9 +13,9 @@ for NF in ${NF_LIST_1}; do
     sleep 0.1
 done
 
-# ./bin/smf -smfcfg "${CONF_DIR}/smf1cfg.yaml" &
-# PID_LIST+=($!)
-# sleep 1
+./bin/smf -smfcfg "${CONF_DIR}/smf1cfg.yaml" &
+PID_LIST+=($!)
+sleep 1
 
 ./bin/smf -smfcfg "${CONF_DIR}/smf2cfg.yaml" &
 PID_LIST+=($!)
@@ -38,6 +38,9 @@ function terminate()
 {
     sudo kill -SIGTERM ${PID_LIST[${#PID_LIST[@]}-2]} ${PID_LIST[${#PID_LIST[@]}-1]}
     sleep 2
+    # clear mongodb
+    cd ${HOME}/5gc-config/slicing_01/scripts
+    ./clear_nfinfo.sh
 }
 
 trap terminate SIGINT
