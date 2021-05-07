@@ -41,3 +41,13 @@ The configuration files and scripts are in the [slicing_01](slicing_01) director
 ![slicing 02](images/slice_deployment_02.png)
 
 The configuration files and scripts are in the [slicing_02](slicing_02) directory.
+
+## Network Slicing 03 (TODO)
+
+- This is an extension of the [network slicing 02](#network-slicing-02-todo) scenario shown above.
+- Here, we have two gNodeBs, gNB1 and gNB2. gNB1 supports both slices (i.e., S-NSSAI1 and S-NSSAI2), while gNB2 only supports a single slice (S-NSSAI1).
+- UPF2 connects to both DNNs, i.e., network1 and network2.
+
+
+
+![slicing 03](images/slice_deployment_03.png)
