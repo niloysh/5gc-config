@@ -7,7 +7,7 @@ if [ -z "$1" ]; then
 fi
 
 echo "Starting UE $1 ..."
-CONF_DIR="${HOME}/5gc-config/slicing_01/config"
+CONF_DIR="${HOME}/5gc-config/slicing_02/config"
 
 cd ${HOME}/UERANSIM
 sudo ./build/nr-ue -c "${CONF_DIR}/free5gc-ue$1.yaml" &
