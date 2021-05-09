@@ -3,6 +3,13 @@ This repo contains configuration files for the deployment of 5G core, using
 the [free5gc](https://github.com/free5gc/free5gc) project and UE and gNB
 simulation using the [UERANSIM](https://github.com/aligungr/UERANSIM) project.
 
+The configuration files and scripts for the various deployment scenarios shown below can be found in the corresponding sub-directories.
+
+Information on packet captures can be found in [packet_capture.md](packet_capture.md).
+
+General debugging information (common to all deployment scenarios) can be found in [debugging.md](debugging.md). Debugging information only applicable to particular deployments can be found in the corresponding README.
+
+
 ## Single UPF
 - This is the simplest scenario, with 1 S-NSSAI, 1 UE, and 1 UPF. 
 - The UE establishes a single PDU session with the UPF.
@@ -10,10 +17,6 @@ simulation using the [UERANSIM](https://github.com/aligungr/UERANSIM) project.
 ![single UPF](images/single_upf_deployment.png)
 
 The configuration files and scripts are in the [single_upf](single_upf) directory.
-
-
-
-
 
 ## Multiple UPFs
 - In this scenario, we have 1 S-NSSAI, 2 UEs and 2 UPFs. 
@@ -36,7 +39,7 @@ The configuration files and scripts are in the [slicing_01](slicing_01) director
 
 - In this scenario, we have 2 S-NSSAI representing two network slices (each consisting of 1 SMF and 1 UPF). 
 - UE1 connects to both slice 1 and slice 2 using two separate PDU sessions.
-- UE2 has two PDU sessions with the same slice (slice 2).
+- UE2 has a single PDU session with slice 2.
 
 ![slicing 02](images/slice_deployment_02.png)
 
@@ -51,3 +54,5 @@ The configuration files and scripts are in the [slicing_02](slicing_02) director
 
 
 ![slicing 03](images/slice_deployment_03.png)
+
+The configuration files and scripts are in the [slicing_03](slicing_03) directory.
