@@ -3,7 +3,7 @@
 PID_LIST=()
 cd ~/free5gc
 
-CONF_DIR="${HOME}/5gc-config/slicing_01/config"
+CONF_DIR="${HOME}/5gc-config/slicing_02/config"
 export GIN_MODE=release
 
 NF_LIST_1="nrf amf"
@@ -39,7 +39,7 @@ function terminate()
     sudo kill -SIGTERM ${PID_LIST[${#PID_LIST[@]}-2]} ${PID_LIST[${#PID_LIST[@]}-1]}
     sleep 2
     # clear mongodb
-    cd ${HOME}/5gc-config/slicing_01/scripts
+    cd ${HOME}/5gc-config/slicing_02/scripts
     ./clear_nfinfo.sh
 }
 
