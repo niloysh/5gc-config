@@ -21,6 +21,9 @@ configuration:
         sst: 1 # Slice/Service Type (uinteger, range: 0~255)
         sd: 112233 # Slice Differentiator (3 bytes hex string, range: 000000~FFFFFF)
       dnnInfos: # DNN information list
+        - dnn: network1 # Data Network Name
+          dns: # the IP address of DNS
+            ipv4: 8.8.8.8
         - dnn: network2 # Data Network Name
           dns: # the IP address of DNS
             ipv4: 8.8.8.8
@@ -28,7 +31,7 @@ configuration:
     addr: 127.0.0.52
   userplane_information: # list of userplane information
     up_nodes: # information of userplane node (AN or UPF)
-      gNB1: # the name of the node
+      gNB2: # the name of the node
         type: AN # the type of the node (AN or UPF)
       UPF2:  # the name of the node
         type: UPF # the type of the node (AN or UPF)
@@ -38,6 +41,9 @@ configuration:
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
               sd: 112233 # Slice Differentiator (3 bytes hex string, range: 000000~FFFFFF)
             dnnUpfInfoList: # DNN information list for this S-NSSAI
+              - dnn: network1
+                pools:
+                  - cidr: 60.61.0.0/16
               - dnn: network2
                 pools:
                   - cidr: 60.62.0.0/16
@@ -45,9 +51,13 @@ configuration:
           - interfaceType: N3 # the type of the interface (N3 or N9)
             endpoints: # the IP address of this N3/N9 interface on this UPF
               - 192.168.1.22
+            networkInstance: network1 # Data Network Name (DNN)
+          - interfaceType: N3 # the type of the interface (N3 or N9)
+            endpoints: # the IP address of this N3/N9 interface on this UPF
+              - 192.168.1.22
             networkInstance: network2 # Data Network Name (DNN)
     links: # the topology graph of userplane, A and B represent the two nodes of each link
-      - A: gNB1
+      - A: gNB2
         B: UPF2
   nrfUri: http://127.0.0.10:8000 # a valid URI of NRF
   ulcl: false
