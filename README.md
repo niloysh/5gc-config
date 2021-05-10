@@ -9,6 +9,14 @@ Information on packet captures can be found in [packet_capture.md](packet_captur
 
 General debugging information (common to all deployment scenarios) can be found in [debugging.md](debugging.md). Debugging information only applicable to particular deployments can be found in the corresponding README.
 
+- [5gc-config](#5gc-config)
+  - [Single UPF](#single-upf)
+  - [Multiple UPFs](#multiple-upfs)
+  - [Network Slicing 01: 2 Slices](#network-slicing-01-2-slices)
+  - [Network Slicing 02: UE connects to multiple slices](#network-slicing-02-ue-connects-to-multiple-slices)
+  - [Network Slicing 03: Multiple gNBs](#network-slicing-03-multiple-gnbs)
+
+
 
 ## Single UPF
 - This is the simplest scenario, with 1 S-NSSAI, 1 UE, and 1 UPF. 
@@ -16,7 +24,6 @@ General debugging information (common to all deployment scenarios) can be found 
 
 ![single UPF](images/single_upf_deployment.png)
 
-The configuration files and scripts are in the [single_upf](single_upf) directory.
 
 ## Multiple UPFs
 - In this scenario, we have 1 S-NSSAI, 2 UEs and 2 UPFs. 
@@ -24,18 +31,16 @@ The configuration files and scripts are in the [single_upf](single_upf) director
 
 ![multi upf](images/multi_upf_deployment.png)
 
-The configuration files and scripts are in the [multi_upf](multi_upf) directory.
 
-## Network Slicing 01
+## Network Slicing 01: 2 Slices
 
 - In this scenario, we have 2 S-NSSAI representing two network slices (each consisting of 1 SMF and 1 UPF). 
 - UE1 and UE2 each connect to separate slices with 1 PDU session each.
 
 ![slicing 01](images/slice_deployment_01.png)
 
-The configuration files and scripts are in the [slicing_01](slicing_01) directory.
 
-## Network Slicing 02
+## Network Slicing 02: UE connects to multiple slices
 
 - In this scenario, we have 2 S-NSSAI representing two network slices (each consisting of 1 SMF and 1 UPF). 
 - UE1 connects to both slice 1 and slice 2 using two separate PDU sessions.
@@ -43,16 +48,12 @@ The configuration files and scripts are in the [slicing_01](slicing_01) director
 
 ![slicing 02](images/slice_deployment_02.png)
 
-The configuration files and scripts are in the [slicing_02](slicing_02) directory.
 
-## Network Slicing 03 (TODO)
+## Network Slicing 03: Multiple gNBs
 
-- This is an extension of the [network slicing 02](#network-slicing-02-todo) scenario shown above.
+- This is an extension of the [slicing 02](#network-slicing-02-ue-connects-to-multiple-slices) scenario shown above.
 - Here, we have two gNodeBs, gNB1 and gNB2. gNB1 supports both slices (i.e., S-NSSAI1 and S-NSSAI2), while gNB2 only supports a single slice (S-NSSAI1).
 - UPF2 connects to both DNNs, i.e., network1 and network2.
 
-
-
 ![slicing 03](images/slice_deployment_03.png)
 
-The configuration files and scripts are in the [slicing_03](slicing_03) directory.
