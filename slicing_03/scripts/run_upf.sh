@@ -10,7 +10,7 @@ if [ -z "$1" ]; then
 
 else
     echo "Using configuration for UPF $1"
-    sudo -E ./bin/free5gc-upfd -f "${HOME}/5gc-config/slicing_02/config/upf$1cfg.yaml" &
+    sudo -E ./bin/free5gc-upfd -f "${HOME}/5gc-config/slicing_03/config/upf$1cfg.yaml" &
 fi
 
 PID_LIST+=($!)
