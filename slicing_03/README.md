@@ -1,6 +1,6 @@
-# 5GC Setup: Slicing 02
+# Slicing 03: Multiple gNBs
 
-- [5GC Setup: Slicing 02](#5gc-setup-slicing-02)
+- [Slicing 03: Multiple gNBs](#slicing-03-multiple-gnbs)
   - [Deployment scenario](#deployment-scenario)
   - [How to run](#how-to-run)
   - [VM placement](#vm-placement)
@@ -9,43 +9,29 @@
 
 ## Deployment scenario
 
-- In this scenario, we have 2 S-NSSAI representing two network slices (each consisting of 1 SMF and 1 UPF). 
-- UE1 connects to multiple slices (both S-NSSAI 1 and S-NSSAI 2), while UE2 connects only to slice 2 (S-NSSAI 2).
+- In this scenario, we have two slices (S-NSSAI 1 and S-NSSAI 2), each having 1 SMF and 1 UPF.
+- We have 2 gNBs, and UE1 connects to gNB1 while UE2 connects to gNB2.
+- UPF2 also connects to 2 DNNs (network1 and network2)
 
-![slicing 02](../images/slice_deployment_02.png)
+![slicing 02](../images/slice_deployment_03.png)
 
 The configuration files for this deployment are in the [config](config) directory.
 
 ## How to run
 
-See instructions [here](../slicing_01/README.md#how-to-run).
-
-**Important!**: Remember to update UDM information for UE1 (i.e., include S-NSSAI 2 and DNN2) using the webconsole.
-
-Check using mondodb as shown below.
-
-![smdata](../images/slicing_02_smdata.jpg)
-
-On successful run, you should see:
-
-![success](../images/slicing_02_multiple_pdu.jpg)
-
-
+See instructions [here](../slicing_02/README.md#how-to-run).
 
 ## VM placement
 
 See information [here](../slicing_01/README.md#vm-placement).
 
+One additional VM was created for gNB2 from gNB1 snapshot.
 
 ## Debugging
 
-See debugging information [here](../slicing_01/README.md#debugging).
+See debugging information [here](../slicing_02/README.md#debugging).
 
-If UDM data regarding UE1 is not correctly updated, we can get the following error.
 
-![udm_error](../images/slicing_02_udm_error.jpg)
-
-Verify that mongodb collection `db.policyData.ues.smData` has been updated correctly.
 
 
 
