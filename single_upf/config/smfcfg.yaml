@@ -21,7 +21,7 @@ configuration:
         sst: 1 # Slice/Service Type (uinteger, range: 0~255)
         sd: 010203 # Slice Differentiator (3 bytes hex string, range: 000000~FFFFFF)
       dnnInfos: # DNN information list
-        - dnn: internet # Data Network Name
+        - dnn: network1 # Data Network Name
           dns: # the IP address of DNS
             ipv4: 8.8.8.8
     - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
@@ -45,7 +45,7 @@ configuration:
               sst: 1 # Slice/Service Type (uinteger, range: 0~255)
               sd: 010203 # Slice Differentiator (3 bytes hex string, range: 000000~FFFFFF)
             dnnUpfInfoList: # DNN information list for this S-NSSAI
-              - dnn: internet
+              - dnn: network1
                 pools:
                   - cidr: 60.60.0.0/16
           - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
@@ -59,7 +59,7 @@ configuration:
           - interfaceType: N3 # the type of the interface (N3 or N9)
             endpoints: # the IP address of this N3/N9 interface on this UPF
               - 192.168.1.21
-            networkInstance: internet # Data Network Name (DNN)
+            networkInstance: network1 # Data Network Name (DNN)
     links: # the topology graph of userplane, A and B represent the two nodes of each link
       - A: gNB1
         B: UPF
