@@ -24,6 +24,10 @@ function terminate()
 {
     sudo kill -SIGTERM ${PID_LIST[${#PID_LIST[@]}-2]} ${PID_LIST[${#PID_LIST[@]}-1]}
     sleep 2
+
+    # clear mongodb after run
+    cd ${HOME}/5gc-config/single_upf/scripts
+    ./clear_nfinfo.sh
 }
 
 trap terminate SIGINT
