@@ -24,7 +24,7 @@ configuration:
 
   # The DNN list supported by UPF
   dnn_list:
-    - dnn: internet # Data Network Name
+    - dnn: network1 # Data Network Name
       cidr: 60.60.0.0/16 # Classless Inter-Domain Routing for assigned IPv4 pool of UE
       # [optional] dnn_list[*].natifname
       # natifname: eth0
