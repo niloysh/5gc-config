@@ -1,3 +1,4 @@
+use free5gc;
 db.policyData.ues.amData.remove({})
 db.policyData.ues.smData.remove({})
 db.subscriptionData.authenticationData.authenticationStatus.remove({})

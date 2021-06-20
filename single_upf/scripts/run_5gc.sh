@@ -27,7 +27,7 @@ function terminate()
 
     # clear mongodb after run
     cd ${HOME}/5gc-config/single_upf/scripts
-    ./clear_nfinfo.sh
+    mongo < clear_nfinfo.js
 }
 
 trap terminate SIGINT
