@@ -79,9 +79,22 @@ A PDR is also associated with a PDI and FAR.
 From the SMF, the following information is needed - S-NSSAI, PDU session IDs, SEIDs corresponding to the PDU sessions, and PDR IDs for each SEID.
 
 - SEID for a UP node is allocated in [context/sm_context.go#L299](https://github.com/free5gc/smf/blob/3437241a3c03bbad1e88b47236fcd98b6f67333e/context/sm_context.go#L299)
+  
 - Activate uplink tunnel and put PDR to PFCP session in [context/datapath.go#L120](https://github.com/free5gc/smf/blob/3437241a3c03bbad1e88b47236fcd98b6f67333e/context/datapath.go#L120)
+  
 - PDU session ID and UE IP address allocation in [producer/pdu_session.go#L96](https://github.com/free5gc/smf/blob/3437241a3c03bbad1e88b47236fcd98b6f67333e/producer/pdu_session.go#L96)
+  
 - SM context stores SEID, PDU session id, and S-NSSAI in [context/sm_context.go#L51](https://github.com/free5gc/smf/blob/main/context/sm_context.go#L51)
+  
+- The PFCPSessionContext struct contains SEID, IP as well as PDR IDs. It is defined in [context/pfcp_session_context.go#L18](https://github.com/free5gc/smf/blob/3437241a3c03bbad1e88b47236fcd98b6f67333e/context/pfcp_session_context.go#L18)
+
+- The PDI inside the PDR struct stores F-TEID information. This is defined in [context/pfcp_rules.go#L33](https://github.com/free5gc/smf/blob/3437241a3c03bbad1e88b47236fcd98b6f67333e/context/pfcp_rules.go#L33)
+
+- Here is the information extracted from SMF context
+
+  ![smcontext-info](images/smcontext-info-02.jpg)
+
+  The combination of fields (PDRID + UEIPAddress + F-TEID) can be used to F-SEID and S-NSSAI.
 
 
 ## Tracing the free5GC UPF
@@ -104,6 +117,8 @@ From the UPF, we need to find Tx and Rx packets on the UL/DL per PDR.
 ## Extracting PDR statistics from the gtp5g kernel module
 
 PDRs are handled by the [gtp5g](https://github.com/free5gc/gtp5g) kernel module.
+
+The gtp5g module does not seem to store F-SEID. It only stores F-TEID. 
 
 
 
