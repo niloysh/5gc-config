@@ -10,6 +10,8 @@
   - [Tracing the free5GC SMF](#tracing-the-free5gc-smf)
   - [Tracing the free5GC UPF](#tracing-the-free5gc-upf)
   - [Extracting PDR statistics from the gtp5g kernel module](#extracting-pdr-statistics-from-the-gtp5g-kernel-module)
+    - [PDR statistics using gtp5gnl scripts](#pdr-statistics-using-gtp5gnl-scripts)
+    - [Tracing `gtp5g.c`](#tracing-gtp5gc)
 
 
 ## Calculating avg. throughput per slice
@@ -119,6 +121,35 @@ From the UPF, we need to find Tx and Rx packets on the UL/DL per PDR.
 PDRs are handled by the [gtp5g](https://github.com/free5gc/gtp5g) kernel module.
 
 The gtp5g module does not seem to store F-SEID. It only stores F-TEID. 
+
+### PDR statistics using gtp5gnl scripts
+
+- First run the 5G network from the UPF and the UE and establish a PDU session.
+- You should see a gtp5g interface in `/proc`. If you don't, probably need to uninstall and reinstall the gtp5g kernel module. Once you have a PDU session established, you can use the gtp5gnl scripts to check the list of PDRs.
+
+  ![pdr-list](images/upf-pdr-list.png)
+
+- Then you can echo the upfgtp interface to `/proc/gtp5g/pdr` and see the following.
+
+  ![pdr-details](images/upf-pdr-details.png)
+
+**Todo**
+ - Packet Tx and Rx count is not implemented. Need to change `gtp5g.c`
+ - Some method to automatically log to file at specific intervals.
+
+### Tracing `gtp5g.c`
+
+**Note**: A reference on [reading and writing `/proc` file](https://devarea.com/linux-kernel-development-creating-a-proc-file-and-interfacing-with-user-space/)
+
+- The PDR interface is created in the `/proc` filesystem in [gtp5g.c#L4075](https://github.com/free5gc/gtp5g/blob/master/gtp5g.c#L4075)
+- PDR drop counters are maintained in `proc_gtp5g_pdr` struct in [gtp5g.c#L266](https://github.com/free5gc/gtp5g/blob/master/gtp5g.c#L266). Need similar counters for Tx and Rx packets.
+
+- Read and write handlers for the `pdr` interface is set in [gtp5g.c#L3986](https://github.com/free5gc/gtp5g/blob/master/gtp5g.c#L3986)
+
+- PDR details are printed in `gtp5g_pdr_read` in [gtp5g.c#L3719](https://github.com/free5gc/gtp5g/blob/master/gtp5g.c#L3719)
+
+- `proc_pdr_read` https://github.com/free5gc/gtp5g/blob/master/gtp5g.c#L3943
+
 
 
 
