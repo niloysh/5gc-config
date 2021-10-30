@@ -29,11 +29,11 @@ See the full iptables screenshot at cn201.
 UDP ports 27031 and 27036 and TCP ports 27036 and 27037
 
 # create GRE  tunnel for connection between game subnet and cn subnet
-sudo ip tunnel add gre1 mode gre remote 129.97.26.28 local 129.97.60.179 ttl 255
-sudo ip addr add 10.0.0.1/30 dev gre1
-sudo ip link set gre1 up
-sudo ip route add 10.10.0.0/16 via 10.0.0.2 dev gre1
-sudo ip route add 192.168.0.0/16 via 10.0.0.2 dev gre1
+    sudo ip tunnel add gre1 mode gre remote 129.97.26.28 local 129.97.60.179 ttl 255
+    sudo ip addr add 10.0.0.1/30 dev gre1
+    sudo ip link set gre1 up
+    sudo ip route add 10.10.0.0/16 via 10.0.0.2 dev gre1
+    sudo ip route add 192.168.0.0/16 via 10.0.0.2 dev gre1
 
 # RLS decode error
 ueransim in containers is v3.1.3, so use that version in the client as well.
