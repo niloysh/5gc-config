@@ -5,6 +5,7 @@
 # CN subnet (10.10.0.0/16) through cn201
 # 
 # required because only cn201 is connected to the lab
+# run this on game client (129.97.60.179)
 
 sudo ip tunnel add gre1 mode gre remote 129.97.26.28 local 129.97.60.179 ttl 255
 sudo ip addr add 10.200.0.1/30 dev gre1

@@ -7,10 +7,10 @@ if [ -z "$1" ]; then
 fi
 
 echo "Starting UE $1 ..."
-CONF_DIR="${HOME}/5gc-config/gaming_setup/config"
+CONF_DIR="${HOME}/5gc-config/gaming_kube"
 
 cd ${HOME}/UERANSIM
-sudo ./build/nr-ue -c "${CONF_DIR}/free5gc-ue$1.yaml" &
+sudo ./build/nr-ue -c "${CONF_DIR}/ue$1.yaml" &
 PID=$!
 
 trap "exit" INT TERM ERR

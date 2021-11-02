@@ -20,7 +20,7 @@ imeiSv: '4370816125816151'
 
 # List of gNB IP addresses for Radio Link Simulation
 gnbSearchList:
-  - 192.168.1.10
+  - 10.10.0.202
 
 # Initial PDU sessions to be established
 sessions:

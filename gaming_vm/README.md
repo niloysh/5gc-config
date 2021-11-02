@@ -1,4 +1,10 @@
-## Setting up connectivity between gaming setup and CN cluster nodes
+# configuration
+
+First, we need connectivity between lab nodes and CN nodes. See section below.
+This directory only contains config files for the UE; use single_upf config files on the VMs.
+Note: VM setup uses ueransim v3.1.7 while kube setup uses v3.1.3.
+
+# connect lab nodes to cn nodes
 
 We want all traffic from lab machines to be routed through the GRE tunnel to cn201 which is bridged with the 10.10.0.0/16 subnet that most cn nodes are located on, e.g., cn115. Basically, we want something like this: client (129.97.60.79) -> GRE tunnel (10.0.0.1 -> 10.0.0.2) -> cn201 (129.97.26.28) -> bridge -> 10.10.0.35 -> cn115-nsm (10.10.0.15)
 
@@ -23,7 +29,6 @@ First, we need to send traffic destined for the 192.168.0.0/16 subnet throught t
 
 Next, we need to set a DNAT rule at cn201, which changes the destination of the gNB to the floating IP address of the gNB. This is because the gNB internal address is sent in the RLS messages and cannot be changed.
 
-See the full iptables screenshot at cn201.
 
 # steam ports for remote play discovery
 UDP ports 27031 and 27036 and TCP ports 27036 and 27037
@@ -36,10 +41,26 @@ UDP ports 27031 and 27036 and TCP ports 27036 and 27037
     sudo ip route add 192.168.0.0/16 via 10.0.0.2 dev gre1
 
 # RLS decode error
-ueransim in containers is v3.1.3, so use that version in the client as well.
+ueransim in containers is v3.1.3, while the VM based setup uses v3.1.7. This can lead to RLS decode error. 
+
+# RRC connection does not succeed
+the RRC setup messages contain the wrong IP. We need at DNAT rule at cn231 (or whatever node is being used as tunnel).
+sudo iptables -t nat -A PREROUTING -d 192.168.1.10 -j DNAT --to-destination 10.10.0.202
 
 
 # send game traffic via 5g network
 sudo ip route add 129.97.168.30 dev uesimtun0
 
 # isolating game traffic using network namespaces
+See namespace scripts.
+
+# Connecting game over LAN using steam
+Launch steam with console argument
+```
+steam -console
+```
+
+Type in console to connect to remote server directly
+```
+connect_remote 129.97.168.30:27036
+```

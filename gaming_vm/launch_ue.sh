@@ -7,9 +7,9 @@ if [ -z "$1" ]; then
 fi
 
 echo "Starting UE $1 ..."
-CONF_DIR="${HOME}/5gc-config/gaming_setup/config"
+CONF_DIR="${HOME}/5gc-config/gaming_vm"
 
-cd ${HOME}/UERANSIM
+cd ${HOME}/UERANSIM-3.1.7
 sudo ./build/nr-ue -c "${CONF_DIR}/ue$1.yaml" &
 PID=$!
 
