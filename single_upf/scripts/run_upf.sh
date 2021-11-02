@@ -3,7 +3,7 @@
 PID_LIST=()
 
 cd ~/free5gc/NFs/upf/build
-sudo -E ./bin/free5gc-upfd -f ~/5gc-config/multi_upf/config/upfcfg.yaml &
+sudo -E ./bin/free5gc-upfd -f ~/5gc-config/single_upf/config/upfcfg.yaml &
 PID_LIST+=($!)
 
 function terminate()
