@@ -19,7 +19,7 @@ In this scenario, we have 2 S-NSSAI representing two network slices (each consis
 We have 4 VMs and the deployment is exactly the same as single slice with multiple PDUs. See [instructions](../single-slice-multiple-pdu/README.md#setting-up-the-vms).
 
 ## Configuration
-Mostly similar to single slice with multiple PDUs. See [instructions](./single-slice-multiple-pdu/README.md#configuration). This scenario introduces the following key changes:
+Mostly similar to single slice with multiple PDUs. See [instructions](../single-slice-multiple-pdu/README.md#configuration). This scenario introduces the following key changes:
 - There are now 2 slice identifiers (i.e., S-NSSAI). Accordingly, these values must be properly set in the following places.
   - When [adding subscriber using the free5gc webconsole](https://www.youtube.com/watch?v=MWlMUejBPpA).
   - In the AMF, SMF, UPF, UE, and gNB configuration files. The configuration files in the `config` directory have been modified to reflect these changes.
@@ -27,7 +27,7 @@ Mostly similar to single slice with multiple PDUs. See [instructions](./single-s
 
 ## Running the NFs
 
-Same as single slice with multiple PDUs. See [instructions](./single-slice-multiple-pdu/README.md#running-the-nfs)
+Same as single slice with multiple PDUs. See [instructions](../single-slice-multiple-pdu/README.md#running-the-nfs)
 
 **Important**: Now that we have 2 SMFs on the same VM, which are using [loopback addesses](https://www.juniper.net/documentation/en_US/junos/topics/concept/interface-security-loopback-understanding.html), some configuration changes are necessary to enable correct routing of packets between them. See instructions for [using loopback addresses as PFCP interfaces](#using-loopback-addresses-as-pfcp-interfaces) before running.
 
