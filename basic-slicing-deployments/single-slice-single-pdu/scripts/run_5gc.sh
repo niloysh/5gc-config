@@ -3,11 +3,11 @@
 # This script runs all the free5gc binaries expect the UPF
 # On termination, it clears the NF entries in MongoDB
 
+CONF_DIR="$(dirname $(dirname $(realpath $0)) )/config"
 PID_LIST=()
 cd ~/free5gc
 
 NF_LIST="nrf amf smf udr pcf udm nssf ausf"
-CONF_DIR="$(dirname $(dirname $(realpath $0)) )/config"
 
 export GIN_MODE=release
 
