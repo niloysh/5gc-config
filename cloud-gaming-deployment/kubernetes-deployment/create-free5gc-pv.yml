@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: example-local-pv9-osm
+  namespace: 8852de7b-713b-4f50-acf9-002b153792f5
+  labels:
+    project: free5gc
+spec:
+  capacity:
+    storage: 8Gi
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  local:
+    path: /home/ubuntu/kubedata
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - kubernetes-master
