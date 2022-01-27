@@ -63,3 +63,8 @@ deployment_name="ueransim" # Can be any name
 path_to_helm_chart="/some/path/to/the/chart/ueransim.tgz" # Can also install from a chart repo if the chart is hosted somewhere.
 helm install $deployment_name $path_to_helm_chart
 ```
+
+Note: In case you get an error saying `NetworkAttachmentDefinition "n2network" exists in default namespace`, use the following:
+```
+helm install $deployment_name $path_to_helm_chart --set createNetworks=false
+```
