@@ -19,7 +19,7 @@ need to complete/setup the following:
    needs to be installed on any worker that the UPF containers might run on, in
    most cases it's best to install it on all of the worker nodes. 
 
-1. Flannel CNI pluging. See [here](https://github.com/flannel-io/flannel)
+1. Flannel CNI plugin. See [here](https://github.com/flannel-io/flannel)
 
 1. Multus-CNI plugin installed. See [here](https://github.com/k8snetworkplumbingwg/multus-cni) for directions.
 
@@ -61,5 +61,8 @@ Assuming that the Free5GC helm chart deployed successfully, deploying the UERANS
 ```shell
 deployment_name="ueransim" # Can be any name
 path_to_helm_chart="/some/path/to/the/chart/ueransim.tgz" # Can also install from a chart repo if the chart is hosted somewhere.
-helm install $deployment_name $path_to_helm_chart
+helm install $deployment_name $path_to_helm_chart --set createNetworks=false
 ```
+The `createNetworks=false` flags ensures that the networking related Kubernetes
+resources are not recreated by the UERANSIM chart. They are created when the
+Free5GC chart is deployed and shared between the two deployments.
