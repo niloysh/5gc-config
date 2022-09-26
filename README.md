@@ -1,3 +1,6 @@
+# Deprecation Notice!
+This repository is no longer actively maintained. We have moved to Kubernetes container based deployment, details of which can be found at [5gc-manifests](https://github.com/niloysh/5gc-manifests).
+
 # 5G Core Deployments
 
 This repository describes the setup and configuration of the 5G core deployment of the 5G testbed at the University of Waterloo as part of the [5G Network Slicing](https://wat5gslicing.github.io/) project.
