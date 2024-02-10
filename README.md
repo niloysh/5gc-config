@@ -1,5 +1,5 @@
-# Deprecation Notice!
-This repository is no longer actively maintained. We have moved to Kubernetes container based deployment, details of which can be found at [5gc-manifests](https://github.com/niloysh/5gc-manifests).
+# DEPRECATION NOTICE
+This repository is no longer actively maintained. We have moved to Kubernetes container-based deployment, details of which can be found at [free5gc-k8s](https://github.com/niloysh/free5gc-k8s).
 
 # 5G Core Deployments
 
